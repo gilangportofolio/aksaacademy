@@ -5,7 +5,7 @@ import Image from 'next/image'
 const Partnership = () => {
   const [isMobile, setIsMobile] = useState(false)
   
-  const originalPartners = [
+  const partners = [
     {
       image: '/images/partnership/logo-1.png',
       name: 'Gilang Portofolio'
@@ -19,38 +19,23 @@ const Partnership = () => {
       name: 'Gilang Portofolio'
     },
     {
-      image: '/images/partnership/logo-1.png',
+      image: '/images/partnership/logo-4.png',
       name: 'Gilang Portofolio'
     },
     {
       image: '/images/partnership/logo-5.png',
       name: 'Gilang Portofolio'
-    },
-    {
-      image: '/images/logo.png',
-      name: 'Gilang Portofolio'
-    },
-    // Duplikasi partner untuk efek infinite scroll
-    {
-      image: '/images/partnership/logo-3.png',
-      name: 'Gilang Portofolio'
-    },
-    {
-      image: '/images/partnership/logo-4.png',
-      name: 'Gilang Portofolio'
     }
   ]
 
-  // Tripple the partners for seamless infinite scroll
-  const partners = [...originalPartners, ...originalPartners, ...originalPartners]
+  // Duplikasi array untuk efek infinite scroll yang mulus
+  const duplicatedPartners = [...partners, ...partners, ...partners]
 
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
-    checkMobile()
-    window.addEventListener('resize', checkMobile)
-    return () => window.removeEventListener('resize', checkMobile)
+    const handleResize = () => setIsMobile(window.innerWidth < 768)
+    handleResize()
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
   }, [])
 
   return (
@@ -65,26 +50,19 @@ const Partnership = () => {
         
         <div className="max-w-7xl mx-auto">
           <div className="relative overflow-hidden">
-            {/* Slider Container */}
-            <div 
-              className="flex gap-16 md:gap-24"
-              style={{
-                animation: 'scroll 40s linear infinite',
-              }}
-            >
-              {partners.map((partner, index) => (
+            <div className={`flex gap-8 md:gap-16 ${isMobile ? 'animate-infinite-scroll' : 'animate-infinite-scroll-desktop'}`}>
+              {duplicatedPartners.map((partner, index) => (
                 <div
-                  key={index}
-                  className="flex-shrink-0 w-[200px] md:w-[250px]"
+                  key={`partner-${index}`}
+                  className="flex-shrink-0 w-[180px] md:w-[220px]"
                 >
                   <div className="flex flex-col items-center">
-                    <div className="relative w-[200px] h-[100px] md:w-[250px] md:h-[125px]">
+                    <div className="relative w-[180px] h-[90px] md:w-[220px] md:h-[110px]">
                       <Image
                         src={partner.image}
                         alt={partner.name}
                         fill
                         className="object-contain"
-                        priority={index < 4}
                       />
                     </div>
                     <h3 className="text-sm md:text-base font-medium text-center text-gray-600 mt-2">
@@ -97,17 +75,6 @@ const Partnership = () => {
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes scroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-${originalPartners.length * (isMobile ? 216 : 274)}px);
-          }
-        }
-      `}</style>
     </section>
   )
 }
