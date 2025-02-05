@@ -6,7 +6,7 @@ export const partnerships = {
         name: '7 Cup'
       },
       {
-        image: '/images/partnership/Busylogo.jpg',
+        image: '/images/partnership/Busylogo.png',
         name: 'Busy Little Panda'
       },
       {
@@ -14,7 +14,7 @@ export const partnerships = {
         name: 'Dealls'
       },
       {
-        image: '/images/partnership/Elitcy.jpg',
+        image: '/images/partnership/Elitcy.png',
         name: 'Elitcy'
       },
       {
@@ -76,49 +76,49 @@ export const partnerships = {
       {
         id: 1,
         name: "ASX",
-        image: '/images/partnership/Logo-5.png',
+        logo: "/images/partnerships/asx.png",
         description: "Providing exposure to multiple asset classes through a single yield bearing token",
         tag: "Yield Bearing Assets"
       },
       {
         id: 2,
         name: "Adapt3r",
-        image: '/images/partnership/Logo-5.png',
+        logo: "/images/partnerships/adapt3r.png",
         description: "Building the next generation of compliant onchain RWA products",
         tag: "Treasuries"
       },
       {
         id: 3,
         name: "Aethos",
-        image: '/images/partnership/Logo-5.png',
+        logo: "/images/partnerships/aethos.png",
         description: "A modular policy engine for the future of finance",
         tag: "DevTools"
       },
       {
         id: 4,
         name: "Alfredpay",
-        image: '/images/partnership/Logo-5.png',
+        logo: "/images/partnerships/alfredpay.png",
         description: "Digital asset to fiat gateway built for your business",
         tag: "Onramps & Offramps"
       },
       {
         id: 5,
         name: "Adapt3r",
-        image: '/images/partnership/Logo-5.png',
+        logo: "/images/partnerships/adapt3r.png",
         description: "Building the next generation of compliant onchain RWA products",
         tag: "Treasuries"
       },
       {
         id: 6,
         name: "Aethos",
-        image: '/images/partnership/Logo-5.png',
+        logo: "/images/partnerships/aethos.png",
         description: "A modular policy engine for the future of finance",
         tag: "DevTools"
       },
       {
         id: 7,
         name: "Alfredpay",
-        image: '/images/partnership/Logo-5.png',
+        logo: "/images/partnerships/alfredpay.png",
         description: "Digital asset to fiat gateway built for your business",
         tag: "Onramps & Offramps"
       }
@@ -133,7 +133,7 @@ export const partnerships = {
           },
           {
             id: 2,
-            image: '/images/partnership/Busylogo.jpg',
+            image: '/images/partnership/Busylogo.png',
             name: 'Busy Little Panda'
           },
           {
@@ -143,7 +143,8 @@ export const partnerships = {
           },
           {
             id: 4,
-            image: '/images/partnership/Elitcy.jpg',
+
+            image: '/images/partnership/Elitcy.png',
             name: 'Elitcy'
           },
           {

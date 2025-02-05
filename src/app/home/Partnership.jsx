@@ -8,6 +8,7 @@ const Partnership = () => {
   
   // Duplikasi array untuk efek infinite scroll yang mulus
   const duplicatedPartners = [...partnerships.sliderPartners, ...partnerships.sliderPartners, ...partnerships.sliderPartners]
+  console.log('Duplicated Partners:', duplicatedPartners);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768)
@@ -28,13 +29,21 @@ const Partnership = () => {
             Berkolaborasi dengan berbagai institusi terkemuka
           </p>
           
-          <div className="max-w-7xl mx-auto">
-            <div className="relative overflow-hidden">
-              <div className={`flex gap-12 md:gap-20 ${isMobile ? 'animate-infinite-scroll' : 'animate-infinite-scroll-desktop'}`}>
+          <div className="relative w-full overflow-hidden">
+            <div className="flex whitespace-nowrap">
+              <div 
+                className={`flex gap-12 md:gap-20 ${
+                  isMobile ? 'animate-infinite-scroll' : 'animate-infinite-scroll-desktop'
+                }`}
+                style={{
+                  minWidth: "fit-content",
+                  willChange: "transform"
+                }}
+              >
                 {duplicatedPartners.map((partner, index) => (
                   <div
                     key={`partner-${index}`}
-                    className="flex-shrink-0 w-[180px] md:w-[220px]"
+                    className="inline-flex flex-shrink-0 w-[180px] md:w-[220px]"
                   >
                     <div className="flex flex-col items-center">
                       <div className="relative w-[180px] h-[90px] md:w-[220px] md:h-[110px]">
@@ -43,6 +52,10 @@ const Partnership = () => {
                           alt={partner.name}
                           fill
                           className="object-contain"
+                          priority={index < 5}
+                          onError={(e) => {
+                            console.error(`Error loading image for ${partner.name}:`, e);
+                          }}
                         />
                       </div>
                       <h3 className="text-sm md:text-base font-medium text-center text-gray-600 mt-4">
@@ -74,7 +87,7 @@ const Partnership = () => {
                 <div className="flex items-center space-x-4 mb-6">
                   <div className="relative w-14 h-14">
                     <Image
-                      src={partner.logo}
+                      src={partner.image}
                       alt={partner.name}
                       fill
                       className="object-contain"
@@ -112,7 +125,7 @@ const Partnership = () => {
               >
                 <div className="relative w-28 h-28">
                   <Image
-                    src={partner.logo}
+                    src={partner.image}
                     alt={partner.name}
                     fill
                     className="object-contain"

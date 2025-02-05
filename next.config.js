@@ -4,7 +4,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'via.placeholder.com',
+        hostname: '**',
       },
     ],
     domains: ['www.w3schools.com'],

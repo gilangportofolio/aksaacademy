@@ -29,17 +29,3 @@ body {
     transform: translateX(-33.333333%);
   }
 }
-
-.animate-infinite-scroll {
-  animation: infinite-scroll 25s linear infinite;
-}
-
-.animate-infinite-scroll-desktop {
-  animation: infinite-scroll-desktop 25s linear infinite;
-}
-
-/* Pause animation on hover */
-.animate-infinite-scroll:hover,
-.animate-infinite-scroll-desktop:hover {
-  animation-play-state: paused;
-}
