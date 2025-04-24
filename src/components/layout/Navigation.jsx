@@ -26,11 +26,12 @@ const Navigation = () => {
   }, [isOpen])
 
   const navItems = [
-    { label: 'HOME', href: '/home' },
-    { label: 'PRODUCT', href: '/product' },
-    { label: 'PROGRAM', href: '/program' },
-    { label: 'TESTIMONI', href: '/testimonial' },
-    { label: 'CONTACT', href: '/contact' },
+    { label: 'Home', href: '/home' },
+    { label: 'About Us', href: '/about-us' },
+    { label: 'Program', href: '/program' },
+    { label: 'Testimoni', href: '/testimonial' },
+    { label: 'Partnership', href: '/partnership' },
+    { label: 'Contact', href: '/contact' },
   ]
 
   const isActive = (href) => {
@@ -43,15 +44,15 @@ const Navigation = () => {
   return (
     <>
       {/* Desktop Navigation */}
-      <nav className="hidden md:flex space-x-6">
+      <nav className="hidden md:flex items-center space-x-1">
         {navItems.map((item) => (
           <Link
             key={item.label}
             href={item.href}
-            className={`px-3 py-2 rounded-md transition-colors duration-200 ${
+            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
               isActive(item.href)
-                ? 'text-blue-600 font-semibold bg-blue-50'
-                : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+                ? 'text-blue-600 bg-blue-50'
+                : 'text-gray-600 hover:text-blue-600 hover:bg-gray-50'
             }`}
           >
             {item.label}
@@ -62,12 +63,8 @@ const Navigation = () => {
       {/* Mobile Menu Button */}
       <div className="md:hidden">
         <button
-          onClick={(e) => {
-            e.stopPropagation()
-            setIsOpen(!isOpen)
-          }}
-          className="p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors duration-200"
-          aria-label="Toggle menu"
+          onClick={() => setIsOpen(!isOpen)}
+          className="p-2 rounded-lg text-gray-600 hover:text-blue-600 hover:bg-gray-50 transition-colors"
         >
           {isOpen ? <HiX size={24} /> : <HiMenu size={24} />}
         </button>
@@ -75,22 +72,23 @@ const Navigation = () => {
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="absolute top-24 left-0 right-0 bg-white border-b shadow-lg md:hidden z-50">
-          <nav className="flex flex-col space-y-1 px-4 py-6">
-            {navItems.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                className={`px-4 py-3 rounded-md transition-colors duration-200 ${
-                  isActive(item.href)
-                    ? 'text-blue-600 font-semibold bg-blue-50'
-                    : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
-                }`}
-                onClick={() => setIsOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
+        <div className="absolute top-full left-0 right-0 bg-white/80 backdrop-blur-lg border-b border-gray-100 md:hidden">
+          <nav className="container mx-auto px-4 py-4">
+            <div className="flex flex-col space-y-1">
+              {navItems.map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className={`px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
+                    isActive(item.href)
+                      ? 'text-blue-600 bg-blue-50'
+                      : 'text-gray-600 hover:text-blue-600 hover:bg-gray-50'
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
           </nav>
         </div>
       )}

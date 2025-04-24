@@ -1,17 +1,20 @@
 import Image from 'next/image'
-import Link from 'next/link'
 
 const Logo = () => {
   return (
-    <Link href="/" className="flex items-center space-x-2">
-      <Image
+    <div className="flex items-center h-full">
+      <Image 
         src="/images/logo.png"
-        alt="Aksa Academy Logo"
-        width={179}
+        alt="Logo"
+        width={150}
         height={81}
         priority
+        style={{
+          width: '150px',
+          height: 'auto'
+        }}
       />
-    </Link>
+    </div>
   )
 }
 

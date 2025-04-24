@@ -64,7 +64,7 @@ const Product = () => {
   return (
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
-        <h1 className="text-3xl font-bold text-center mb-4">
+        <h1 className="text-4xl font-bold text-center mb-4 text-blue-600">
           PRODUK AKSA ACADEMY
         </h1>
         <p className="text-gray-600 text-center mb-12">
@@ -77,7 +77,7 @@ const Product = () => {
             <button
               key={category.id}
               onClick={() => setSelectedCategory(category.id)}
-              className={`px-6 py-2 rounded-full transition-all ${
+              className={`px-6 py-2 rounded-full transition-all text-lg font-semibold ${
                 selectedCategory === category.id
                   ? 'bg-blue-600 text-white'
                   : 'bg-white text-gray-700 hover:bg-gray-100'
@@ -103,7 +103,7 @@ const Product = () => {
               
               <div className="p-6">
                 <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-xl font-bold">{product.title}</h3>
+                  <h3 className="text-xl font-bold text-blue-600">{product.title}</h3>
                   <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">
                     {categories.find(cat => cat.id === product.category)?.name}
                   </span>
