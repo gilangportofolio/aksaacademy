@@ -40,7 +40,7 @@ const Partnership = () => {
               <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-gray-50 via-gray-50/90 to-transparent z-10"></div>
               <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-gray-50 via-gray-50/90 to-transparent z-10"></div>
               
-              <div className="flex whitespace-nowrap">
+              <div className="flex">
                 <div 
                   className={`flex gap-8 md:gap-12 ${
                     isMobile ? 'animate-infinite-scroll' : 'animate-infinite-scroll-desktop'
@@ -55,7 +55,7 @@ const Partnership = () => {
                       key={`partner-${index}`}
                       className="inline-flex flex-shrink-0 w-[120px] md:w-[150px] group"
                     >
-                      <div className="flex flex-col items-center p-3 rounded-xl transition-all duration-300 hover:bg-white hover:shadow-xl hover:scale-105">
+                      <div className="flex flex-col items-center p-3 rounded-xl transition-all duration-300 hover:shadow-xl hover:scale-105">
                         <div className="relative w-[120px] h-[60px] md:w-[150px] md:h-[75px]">
                           <Image
                             src={partner.image}
@@ -68,8 +68,13 @@ const Partnership = () => {
                               console.error(`Error loading image for ${partner.name}:`, e);
                             }}
                           />
-                        </div>
-                        <h3 className="text-xs md:text-sm font-medium text-center text-gray-600 mt-3 group-hover:text-blue-600">
+                        </div>  
+                        <h3
+                          className="
+                            text-xs md:text-sm font-medium text-center text-gray-600 mt-3 group-hover:text-blue-600
+                            min-h-[2.5em] max-w-full break-words overflow-hidden line-clamp-2
+                          "
+                        >
                           {partner.name}
                         </h3>
                       </div>

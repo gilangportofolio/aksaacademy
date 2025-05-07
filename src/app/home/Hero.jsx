@@ -1,3 +1,6 @@
+import Link from 'next/link';
+
+
 const Hero = () => {
   return (
     <section className="relative py-16 lg:py-24 bg-gradient-to-b from-gray-50 via-blue-50 to-white">
@@ -77,13 +80,18 @@ const Hero = () => {
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 pt-6">
-                <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg font-medium hover:opacity-90 transition-opacity">
-                  Mulai Belajar
-                </button>
-                <button className="px-8 py-4 bg-white border-2 border-gray-200 text-gray-700 rounded-lg font-medium hover:border-blue-600 transition-colors">
-                  Pelajari Lebih Lanjut
-                </button>
-              </div>
+  <Link href="/program" passHref>
+    <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg font-medium hover:opacity-90 transition-opacity">
+      Mulai Belajar
+    </button>
+  </Link>
+  <Link href="/about-us" passHref>
+    <button className="px-8 py-4 bg-white border-2 border-gray-200 text-gray-700 rounded-lg font-medium hover:border-blue-600 transition-colors">
+      Pelajari Lebih Lanjut
+    </button>
+  </Link>
+</div>
+
             </div>
           </div>
         </div>

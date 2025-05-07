@@ -8,53 +8,69 @@ const Product = () => {
   const products = [
     {
       id: 1,
-      title: "Digital Marketing Handbook",
-      category: "ebook",
-      price: "Rp 99.000",
-      description: "Panduan lengkap digital marketing untuk pemula",
+      title: "Remote Work Mentoring - Paket Fundamental",
+      category: "mentoring",
+      price: "Rp 200.000",
+      description: "Program mentoring remote work untuk pemula",
       features: [
-        "200+ halaman konten",
-        "Case study nyata",
-        "Template marketing plan",
-        "Lifetime access"
+        "30-menit initial mentoring",
+        "60-menit advance mentoring (2 sesi)",
+        "Strategi + materi praktek remote work",
+        "Tanpa konsultasi WA",
       ],
-      image: "https://www.w3schools.com/w3images/tech_tablet.jpg"
+      image: "/mentoring-fundamental.jpg"
     },
     {
       id: 2,
-      title: "Aksa Academy T-Shirt",
-      category: "merchandise",
-      price: "Rp 150.000",
-      description: "Kaos eksklusif dengan desain minimalis",
+      title: "Remote Work Mentoring - Paket Pro",
+      category: "mentoring",
+      price: "Rp 350.000",
+      description: "Program mentoring remote work level menengah",
       features: [
-        "100% Cotton Combed 30s",
-        "Unisex design",
-        "Size S, M, L, XL",
-        "Free sticker pack"
+        "30-menit initial mentoring",
+        "90-menit advance mentoring (3 sesi)",
+        "Strategi + materi praktek remote work",
+        "Konsultasi via WA chat",
+        "Akses Ruang Bertumbuh Aksa"
       ],
-      image: "https://www.w3schools.com/w3images/tech_camera.jpg"
+      image: "/mentoring-pro.jpg"
     },
     {
       id: 3,
-      title: "Digital Planner 2024",
-      category: "tools",
-      price: "Rp 79.000",
-      description: "Planner digital untuk produktivitas maksimal",
+      title: "Remote Work Mentoring - Paket Premium",
+      category: "mentoring",
+      price: "Rp 600.000",
+      description: "Program mentoring remote work paling lengkap",
       features: [
-        "12 bulan template",
-        "Goal tracking system",
-        "Project timeline",
-        "Daily scheduler"
+        "30-menit initial mentoring",
+        "150-menit advance mentoring (5 sesi)",
+        "Strategi + materi praktek remote work",
+        "Konsultasi via WA chat",
+        "Akses Ruang Bertumbuh Aksa",
+        "Internship + Surat Rekomendasi"
       ],
-      image: "https://www.w3schools.com/w3images/tech_mic.jpg"
+      image: "/mentoring-premium.jpg"
+    },
+    {
+      id: 4,
+      title: "Virtual Assistant Training",
+      category: "virtual-assistant",
+      price: "Coming Soon",
+      description: "Program pelatihan menjadi Virtual Assistant profesional",
+      features: [
+        "Materi lengkap VA",
+        "Praktek langsung",
+        "Mentoring personal",
+        "Sertifikat kelulusan"
+      ],
+      image: "/va-training.jpg"
     }
   ]
 
   const categories = [
     { id: 'all', name: 'Semua Produk' },
-    { id: 'ebook', name: 'E-Book' },
-    { id: 'merchandise', name: 'Merchandise' },
-    { id: 'tools', name: 'Tools' }
+    { id: 'mentoring', name: 'Remote Work Mentoring' },
+    { id: 'virtual-assistant', name: 'Virtual Assistant' }
   ]
 
   const filteredProducts = selectedCategory === 'all' 

@@ -8,53 +8,57 @@ const Program = () => {
   const programs = [
     {
       id: 1,
-      title: "Digital Marketing",
-      category: "marketing",
-      price: "Rp 2.500.000",
-      duration: "3 bulan",
+      title: "Remote Work Mentoring - Paket Fundamental",
+      category: "mentoring",
+      price: "Rp 200.000",
+      duration: "60 menit",
       features: [
-        "Stay ahead with DevicU's",
-        "Hands-on projects to master digital marketing tools",
-        "Run real SME ad campaigns with actual budgets",
-        "Virtual Internship with real cases from partners"
+        { text: "30-menit initial mentoring", available: true },
+        { text: "60-menit advance mentoring (2 sesi)", available: true },
+        { text: "Strategi + materi praktek remote work", available: true },
+        { text: "Konsultasi via WA chat", available: false },
+        { text: "Akses Ruang Bertumbuh Aksa", available: false },
+        { text: "Internship + Surat Rekomendasi", available: false }
       ],
-      image: "https://www.w3schools.com/w3images/team1.jpg"
+      image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=640&h=360&fit=crop"
     },
     {
       id: 2,
-      title: "Content Creator",
-      category: "content",
-      price: "Rp 2.000.000",
-      duration: "2 bulan",
+      title: "Remote Work Mentoring - Paket Pro",
+      category: "mentoring",
+      price: "Rp 350.000",
+      duration: "90 menit",
       features: [
-        "Master content creation",
-        "Learn video editing & graphic design",
-        "Build personal branding",
-        "Create viral social media content"
+        { text: "30-menit initial mentoring", available: true },
+        { text: "90-menit advance mentoring (3 sesi)", available: true },
+        { text: "Strategi + materi praktek remote work", available: true },
+        { text: "Konsultasi via WA chat", available: true },
+        { text: "Akses Ruang Bertumbuh Aksa", available: true },
+        { text: "Internship + Surat Rekomendasi", available: false }
       ],
-      image: "https://www.w3schools.com/w3images/team2.jpg"
+      image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=640&h=360&fit=crop"
     },
     {
       id: 3,
-      title: "Virtual Assistant",
-      category: "va",
-      price: "Rp 1.800.000",
-      duration: "2 bulan",
+      title: "Remote Work Mentoring - Paket Premium",
+      category: "mentoring",
+      price: "Rp 600.000",
+      duration: "150 menit",
       features: [
-        "Learn VA fundamentals",
-        "Master productivity tools",
-        "Project management skills",
-        "Client communication training"
+        { text: "30-menit initial mentoring", available: true },
+        { text: "150-menit advance mentoring (5 sesi)", available: true },
+        { text: "Strategi + materi praktek remote work", available: true },
+        { text: "Konsultasi via WA chat", available: true },
+        { text: "Akses Ruang Bertumbuh Aksa", available: true },
+        { text: "Internship + Surat Rekomendasi", available: true }
       ],
-      image: "https://www.w3schools.com/w3images/team3.jpg"
+      image: "https://images.unsplash.com/photo-1552581234-26160f608093?w=640&h=360&fit=crop"
     }
   ]
 
   const categories = [
     { id: 'all', name: 'Semua Program' },
-    { id: 'marketing', name: 'Digital Marketing' },
-    { id: 'content', name: 'Content Creator' },
-    { id: 'va', name: 'Virtual Assistant' }
+    { id: 'mentoring', name: 'Remote Work Mentoring' },
   ]
 
   const filteredPrograms = selectedCategory === 'all' 
@@ -91,38 +95,61 @@ const Program = () => {
         {/* Programs Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredPrograms.map((program) => (
-            <div key={program.id} className="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-xl transition-shadow">
-              <div className="relative h-48">
+            <div key={program.id} className="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-xl transition-shadow flex flex-col">
+              <div className="relative h-56">
                 <Image
                   src={program.image}
                   alt={program.title}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  priority={program.id <= 3}
                 />
               </div>
               
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">{program.title}</h3>
-                <p className="text-blue-600 font-bold mb-4">{program.price}</p>
-                <p className="text-gray-600 mb-4">Durasi: {program.duration}</p>
-                
-                <ul className="space-y-2 mb-6">
-                  {program.features.map((feature, index) => (
-                    <li key={index} className="flex items-center text-gray-700">
-                      <svg className="w-4 h-4 mr-2 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                      </svg>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
+              <div className="p-6 flex flex-col h-full">
+                {/* Title Section - 2 lines */}
+                <div className="mb-4">
+                  <h3 className="text-xl font-bold text-center">
+                    <span className="block">Remote Work Mentoring</span>
+                    <span className="block text-blue-600">{program.title.split('- ')[1]}</span>
+                  </h3>
+                </div>
 
-                <div className="flex gap-4">
-                  <button className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                {/* Price Section */}
+                <div className="mb-2 text-center">
+                  <p className="text-blue-600 font-bold text-2xl">{program.price}</p>
+                </div>
+
+                {/* Duration Section */}
+                <div className="mb-4 text-center">
+                  <p className="text-gray-600">Durasi: {program.duration}</p>
+                </div>
+
+                {/* Features List */}
+                <div className="mb-6">
+                  <ul className="space-y-3">
+                    {program.features.map((feature, index) => (
+                      <li key={index} className="flex items-start text-gray-700 text-base">
+                        {feature.available ? (
+                          <svg className="w-5 h-5 mr-3 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                          </svg>
+                        ) : (
+                          <svg className="w-5 h-5 mr-3 text-red-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                          </svg>
+                        )}
+                        <span className="leading-relaxed">{feature.text}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Button Section */}
+                <div className="mt-auto">
+                  <button className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors">
                     Daftar Sekarang
-                  </button>
-                  <button className="w-full border border-blue-600 text-blue-600 py-2 rounded-lg hover:bg-blue-50 transition-colors">
-                    Free Mini Course
                   </button>
                 </div>
               </div>

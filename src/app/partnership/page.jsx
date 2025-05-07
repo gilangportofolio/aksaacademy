@@ -15,39 +15,45 @@ const PartnershipPage = () => {
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {partnerships.featuredPartners.map((partner) => (
-  <a
-    key={partner.id}
-    href={partner.link}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="group block bg-white/70 backdrop-blur-lg p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
-  >
-    <div className="flex items-center space-x-4 mb-6">
-      <div className="relative w-14 h-14 rounded-xl overflow-hidden bg-blue-50 p-2">
-        <Image
-          src={partner.image}
-          alt={partner.name}
-          fill
-          sizes="(max-width: 768px) 50vw, 25vw"
-          className="object-contain p-2 group-hover:scale-110 transition-transform duration-300"
-        />
-      </div>
-      <h3 className="font-semibold text-lg group-hover:text-blue-600 transition-colors">
-        {partner.name}
-      </h3>
-    </div>
+            {partnerships.featuredPartners.map((partner) => (
+              <a
+                key={partner.id}
+                href={partner.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col bg-white/80 backdrop-blur-lg p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full"
+              >
+                <div className="flex items-center space-x-4 mb-6">
+                  <div className="relative w-14 h-14 rounded-xl overflow-hidden bg-blue-50 p-2">
+                    <Image
+                      src={partner.image}
+                      alt={partner.name}
+                      fill
+                      sizes="(max-width: 768px) 50vw, 25vw"
+                      className="object-contain p-2 group-hover:scale-110 transition-transform duration-300"
+                    />
+                  </div>
+                  <h3 className="font-semibold text-lg group-hover:text-blue-600 transition-colors">
+                    {partner.name}
+                  </h3>
+                </div>
 
-    <p className="text-gray-600 text-sm mb-6 line-clamp-3">
-      {partner.description}
-    </p>
+                <p className="text-gray-600 text-sm mb-4 line-clamp-3 flex-1">
+                  {partner.description}
+                </p>
 
-    <span className="inline-block px-4 py-1.5 bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-800 text-xs font-medium rounded-full">
-      {partner.tag}
-    </span>
-  </a>
-))}
-
+                <div className="mt-auto flex flex-wrap gap-2">
+                  {partner.tag.split(',').map((tag, idx) => (
+                    <span
+                      key={idx}
+                      className="inline-block px-3 py-1 bg-blue-100 text-blue-700 text-xs font-semibold rounded-md shadow-sm border border-blue-200"
+                    >
+                      {tag.trim()}
+                    </span>
+                  ))}
+                </div>
+              </a>
+            ))}
           </div>
         </div>
       </div>
